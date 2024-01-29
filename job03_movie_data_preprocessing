@@ -49,7 +49,7 @@ stopwords = pd.read_csv('./stopwords.csv', index_col=0)
 for j in range(len(X)):
     words = []
     for i in range(len(X[j])):
-        if len(X[j][i]) > 1: # 한글자짜리는 다 제외 하겠다
+        if len(X[j][i]) > 1: # 한글자짜리는 다 제외 하겠다 / 의미학습이 제대로 되지 않아서 제외한다 / 예를들어 물 이라는 한글자가 물방울의 물이 될 수 있고 물건의 물이 될 수 있기에 
             if X[j][i] not in list(stopwords['stopword']): # 불용어에 포함되지 않으면
                 words.append(X[j][i])
     X[j] = ' '.join(words)
